@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :beauxties, only: %i[index show]
   resources :carts, only: %i[show update destroy]
   # RESTful routes
   resources :examples, except: %i[new edit]

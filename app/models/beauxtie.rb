@@ -1,0 +1,2 @@
+class Beauxtie < ApplicationRecord
+end
