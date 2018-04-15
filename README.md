@@ -4,7 +4,7 @@
 
 ### ERD
 
-[!altext] (https://i.imgur.com/88IB23T.jpg "Beaux-ties ERD")
+![alt text](https://i.imgur.com/88IB23T.jpg "Beaux-ties ERD")
 
 ### Technologies Used
 - Ruby
