@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415193117) do
+ActiveRecord::Schema.define(version: 20180415195454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20180415193117) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cart_products", force: :cascade do |t|
+    t.bigint "users_id"
+    t.bigint "carts_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carts_id"], name: "index_cart_products_on_carts_id"
+    t.index ["users_id"], name: "index_cart_products_on_users_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -56,6 +65,8 @@ ActiveRecord::Schema.define(version: 20180415193117) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  add_foreign_key "cart_products", "carts", column: "carts_id"
+  add_foreign_key "cart_products", "users", column: "users_id"
   add_foreign_key "carts", "users"
   add_foreign_key "examples", "users"
 end
