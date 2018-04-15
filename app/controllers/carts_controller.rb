@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[show]
+  before_action :set_cart, only: %i[show update destroy]
 
   # GET /carts
   def index
