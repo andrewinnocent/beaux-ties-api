@@ -5,7 +5,7 @@ require 'csv'
 csv_text = File.read(Rails.root.join('data', 'beauxties-list.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  t = Beauxtie.new
+  t = Bow.new
   t.name = row['name']
   t.style = row['style']
   t.color = row['color']
