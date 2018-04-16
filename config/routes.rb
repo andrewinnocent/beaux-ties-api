@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # resources :beauxties, only: %i[index show]
   resources :carts, only: %i[show update destroy]
   # RESTful routes
   resources :examples, except: %i[new edit]
@@ -13,6 +12,6 @@ Rails.application.routes.draw do
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
 
-  get '/beauxties' => 'beauxties#index'
-  get '/beauxties/:id' => 'beauxties#show'
+  get '/beauxties' => 'bows#index'
+  get '/beauxties/:id' => 'bows#show'
 end
