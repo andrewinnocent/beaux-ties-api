@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :bows, only: %i[index show update]
   resources :carts, only: %i[show update destroy]
   # RESTful routes
   resources :examples, except: %i[new edit]
@@ -11,7 +12,4 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
-
-  get '/bows' => 'bows#index'
-  get '/bows/:id' => 'bows#show'
 end
