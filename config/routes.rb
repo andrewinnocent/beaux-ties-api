@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
 
-  get '/beauxties' => 'bows#index'
-  get '/beauxties/:id' => 'bows#show'
+  get '/bows' => 'bows#index'
+  get '/bows/:id' => 'bows#show'
 end
