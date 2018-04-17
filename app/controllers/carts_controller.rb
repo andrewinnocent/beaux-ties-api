@@ -1,9 +1,9 @@
-class CartsController < ApplicationController
-  before_action :set_cart, only: %i[show update destroy]
+class CartsController < ProtectedController
+  before_action :set_cart, only: %i[index show]
 
   # GET /carts
   def index
-    @carts = Cart.all
+    @carts = current_user.Cart.all
 
     render json: @carts
   end
@@ -15,7 +15,7 @@ class CartsController < ApplicationController
 
   # POST /carts
   def create
-    @cart = Cart.new(cart_params)
+    @cart = current_user.build_cart(cart_params)
 
     if @cart.save
       render json: @cart, status: :created, location: @cart
@@ -41,11 +41,11 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      @cart = current_user.cart.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def cart_params
-      params.require(:cart).permit(:beauxtie_quantity, :payment_total, :active)
+      params.require(:cart).permit(:payment_total, :active)
     end
 end

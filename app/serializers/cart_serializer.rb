@@ -1,5 +1,5 @@
 class CartSerializer < ActiveModel::Serializer
-  attributes :id, :beauxtie_quantity, :payment_total, :active
+  attributes :id, :payment_total, :active, :bows
 
   def bows
     object.bows.pluck(:id)
