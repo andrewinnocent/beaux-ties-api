@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/sign-out" \
+curl "http://localhost:4741/carts" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json" \
