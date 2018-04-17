@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417133601) do
+ActiveRecord::Schema.define(version: 20180417165737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,8 +28,16 @@ ActiveRecord::Schema.define(version: 20180417133601) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bows_carts", force: :cascade do |t|
+    t.bigint "carts_id"
+    t.bigint "bows_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bows_id"], name: "index_bows_carts_on_bows_id"
+    t.index ["carts_id"], name: "index_bows_carts_on_carts_id"
+  end
+
   create_table "carts", force: :cascade do |t|
-    t.integer "beauxtie_quantity"
     t.money "payment_total", scale: 2
     t.boolean "active"
     t.datetime "created_at", null: false
@@ -56,6 +64,8 @@ ActiveRecord::Schema.define(version: 20180417133601) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  add_foreign_key "bows_carts", "bows", column: "bows_id"
+  add_foreign_key "bows_carts", "carts", column: "carts_id"
   add_foreign_key "carts", "users"
   add_foreign_key "examples", "users"
 end
