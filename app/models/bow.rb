@@ -1,4 +1,4 @@
 class Bow < ApplicationRecord
-  has_many :cart_products
-  has_many :carts, through: :cart_products
+  has_many :bows_carts
+  has_many :carts, through: :bows_carts
 end
