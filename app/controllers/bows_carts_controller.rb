@@ -46,6 +46,6 @@ class BowsCartsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bows_cart_params
-      params.require(:bows_cart).permit(:carts_id, :bows_id)
+      params.require(:bows_cart).permit(:cart_id, :bow_id)
     end
 end

@@ -1,7 +1,4 @@
 class CartSerializer < ActiveModel::Serializer
-  attributes :id, :bows
+  attributes :id
 
-  def bows
-    object.bows.pluck(:id)
-  end
 end
