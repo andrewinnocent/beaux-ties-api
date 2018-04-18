@@ -7,7 +7,7 @@ curl "http://localhost:4741/carts" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "cart": {
-      "user_id": "'"3"'"
+      "user_id": "'"${USER_ID}"'"
     }
   }'
 
