@@ -46,6 +46,6 @@ class CartsController < ProtectedController
 
     # Only allow a trusted parameter "white list" through.
     def cart_params
-      params.require(:cart).permit(:payment_total, :active)
+      params.require(:cart).permit(:user_id)
     end
 end
