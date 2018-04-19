@@ -1,5 +1,4 @@
 class WishSerializer < ActiveModel::Serializer
-  attributes :id, :active
-  has_one :user
-  has_one :bow
+  attributes :id, :active, :bow_id, :user_id
+
 end
