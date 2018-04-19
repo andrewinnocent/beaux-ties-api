@@ -26,6 +26,8 @@ class BowsController < ApplicationController
 
   # PATCH/PUT /bows/1
   def update
+    @bow = Bow.find(params[:id])
+
     if @bow.update(bow_params)
       render json: @bow
     else
@@ -46,6 +48,6 @@ class BowsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bow_params
-      params.require(:bow).permit(:name, :style, :color, :fabric, :descriptiong, :price, :stock_quantity, :image)
+      params.require(:bow).permit(:name, :style, :color, :fabric, :descriptiong, :price, :stock_quantity, :image, :wishlist)
     end
 end

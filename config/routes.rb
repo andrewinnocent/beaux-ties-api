@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :bows_carts, except: %i[new edit]
-  resources :bows, only: %i[index show]
+  resources :bows, only: %i[index show update]
   resources :carts, only: %i[index show create]
   # RESTful routes
   resources :examples, except: %i[new edit]
