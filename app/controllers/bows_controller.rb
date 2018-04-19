@@ -48,6 +48,6 @@ class BowsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bow_params
-      params.require(:bow).permit(:name, :style, :color, :fabric, :descriptiong, :price, :stock_quantity, :image, :wishlist)
+      params.require(:bow).permit(:name, :style, :color, :fabric, :descriptiong, :price, :stock_quantity, :image)
     end
 end

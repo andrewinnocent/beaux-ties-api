@@ -3,7 +3,7 @@ class WishesController < ProtectedController
 
   # GET /wishes
   def index
-    @wishes = current_user.wish.all
+    @wishes = current_user.wishes.all
 
     render json: @wishes
   end
@@ -15,7 +15,7 @@ class WishesController < ProtectedController
 
   # POST /wishes
   def create
-    @wish = current_user.cart.wish.build(wish_params)
+    @wish = current_user.wishes.build(wish_params)
 
     if @wish.save
       render json: @wish, status: :created, location: @wish
@@ -43,7 +43,7 @@ class WishesController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wish
-      @wish = current_user.wish.find(params[:id])
+      @wish = current_user.wishes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

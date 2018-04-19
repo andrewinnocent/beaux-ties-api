@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :wishes, only: %i[index update]
+  resources :wishes, only: %i[create index update]
   resources :bows_carts, except: %i[new edit]
   resources :bows, only: %i[index show]
   resources :carts, only: %i[index show create]
