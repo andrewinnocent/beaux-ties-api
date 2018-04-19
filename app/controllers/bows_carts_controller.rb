@@ -1,9 +1,9 @@
-class BowsCartsController < ApplicationController
-  before_action :set_bows_cart, only: [:show, :update, :destroy]
+class BowsCartsController < ProtectedController
+  before_action :set_bows_cart, only: %i[show update destroy]
 
   # GET /bows_carts
   def index
-    @bows_carts = BowsCart.all
+    @bows_carts = current_user.bows_carts.all
 
     render json: @bows_carts
   end
@@ -15,7 +15,7 @@ class BowsCartsController < ApplicationController
 
   # POST /bows_carts
   def create
-    @bows_cart = BowsCart.new(bows_cart_params)
+    @bows_cart = current_user.cart.bows_carts.build(bows_cart_params)
 
     if @bows_cart.save
       render json: @bows_cart, status: :created, location: @bows_cart
@@ -41,11 +41,11 @@ class BowsCartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bows_cart
-      @bows_cart = BowsCart.find(params[:id])
+      @bows_cart = current_user.bows_carts.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def bows_cart_params
-      params.require(:bows_cart).permit(:carts_id, :bows_id)
+      params.require(:bows_cart).permit(:cart_id, :bow_id)
     end
 end

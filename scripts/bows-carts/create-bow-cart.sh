@@ -1,13 +1,14 @@
 #!/bin/bash
 
-curl "http://localhost:4741/carts" \
+curl "http://localhost:4741/bows_carts" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "cart": {
-      "user_id": "'"${USER_ID}"'"
+    "bows_cart": {
+      "bow_id": "'"${BOW_ID}"'",
+      "cart_id": "'"${CART_ID}"'"
     }
   }'
 

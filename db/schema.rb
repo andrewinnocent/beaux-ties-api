@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417165737) do
+ActiveRecord::Schema.define(version: 20180419155727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,17 +29,15 @@ ActiveRecord::Schema.define(version: 20180417165737) do
   end
 
   create_table "bows_carts", force: :cascade do |t|
-    t.bigint "carts_id"
-    t.bigint "bows_id"
+    t.bigint "cart_id"
+    t.bigint "bow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bows_id"], name: "index_bows_carts_on_bows_id"
-    t.index ["carts_id"], name: "index_bows_carts_on_carts_id"
+    t.index ["bow_id"], name: "index_bows_carts_on_bow_id"
+    t.index ["cart_id"], name: "index_bows_carts_on_cart_id"
   end
 
   create_table "carts", force: :cascade do |t|
-    t.money "payment_total", scale: 2
-    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -64,8 +62,20 @@ ActiveRecord::Schema.define(version: 20180417165737) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
-  add_foreign_key "bows_carts", "bows", column: "bows_id"
-  add_foreign_key "bows_carts", "carts", column: "carts_id"
+  create_table "wishes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "bow_id"
+    t.boolean "active", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bow_id"], name: "index_wishes_on_bow_id"
+    t.index ["user_id"], name: "index_wishes_on_user_id"
+  end
+
+  add_foreign_key "bows_carts", "bows"
+  add_foreign_key "bows_carts", "carts"
   add_foreign_key "carts", "users"
   add_foreign_key "examples", "users"
+  add_foreign_key "wishes", "bows"
+  add_foreign_key "wishes", "users"
 end

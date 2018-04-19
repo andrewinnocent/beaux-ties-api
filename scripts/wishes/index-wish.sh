@@ -1,9 +1,8 @@
 #!/bin/bash
 
-curl "http://localhost:4741/bows_carts" \
+curl "http://localhost:4741/wishes" \
   --include \
   --request GET \
-  --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}"
 
 

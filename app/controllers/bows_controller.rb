@@ -26,6 +26,8 @@ class BowsController < ApplicationController
 
   # PATCH/PUT /bows/1
   def update
+    @bow = Bow.find(params[:id])
+
     if @bow.update(bow_params)
       render json: @bow
     else

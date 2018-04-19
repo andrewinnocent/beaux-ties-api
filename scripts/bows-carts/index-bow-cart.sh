@@ -2,8 +2,7 @@
 
 curl "http://localhost:4741/bows_carts" \
   --include \
-  --request POST \
-  --header "Content-Type: application/json" \
+  --request GET \
   --header "Authorization: Token token=${TOKEN}"
 
 
