@@ -12,6 +12,10 @@ Final outcome: ![alt text](https://i.imgur.com/RDLp6Tsm.jpg, "Beaux-ties ERD 1.5
 - Ruby
 - Rails
 
+### Installation
+- `bundle install`
+
+
 ### API End Points
 | Verb   | URI Pattern          | Controller#Action   |
 |--------|----------------------|---------------------|
