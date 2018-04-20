@@ -1,9 +1,0 @@
-#!/bin/bash
-
-curl "http://localhost:4741/carts" \
-  --include \
-  --request GET \
-  --header "Authorization: Token token=${TOKEN}"
-
-
-echo
