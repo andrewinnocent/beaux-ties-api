@@ -1,4 +1,4 @@
-# Bowties E-commerce Site - Rails API
+# Beaux-ties E-commerce Site - Rails API
 
 My capstone project at GA. "Beaux-Ties" is an e-commerce site where a user can view, add to wishlist, and add to a shopping cart bowties. "Beaux" is "beautiful" or "handsome" (in the plural form) in French.
 
